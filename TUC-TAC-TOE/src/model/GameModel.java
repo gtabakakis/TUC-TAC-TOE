@@ -2,7 +2,6 @@ package model;
 
 import control.GameController;
 
-import java.awt.Dimension;
 
 
 public class GameModel {
@@ -116,7 +115,7 @@ public class GameModel {
 	}
 	
 	/* Changes for Lab 08 */
-	public void makeMove(int row, int col) {
+	public void makeMoveX(int row, int col) {
 		checkMoveValidity(row, col);
 		gameBoard[row][col]=getMoverMark();
 		mover=!mover;
@@ -152,6 +151,21 @@ public class GameModel {
 	/* Changes for Lab 08 */
 	public String getMoverMark() {
 		return mover? "O": "X";
+	}
+	
+
+	/* Changes for Lab 08 */
+	public void makeMoveO(int row, int col) {
+		checkMoveValidity(row, col);
+		gameBoard[row][col]=getMoverMarkX();
+		mover=!mover;
+		moves++;
+	}
+	
+	/* Changes for Lab 08 */
+	public String getMoverMarkX() {
+		return mover? "X": "O";
+
 	}
 	
 	/* Changes for Lab 08 */

@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.util.Arrays;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -23,11 +24,14 @@ import control.GameController;
 public class PlayerPanel extends GamePanel{
 	
 	JButton selectPlayerBtn;
+	JButton startGameBtn;
+	
 	int pos;
 	String currentPlayer;
 	JTextField plName;
 	JLabel plMark;
 	JTextArea plStats;
+	
 	
 	
 	public PlayerPanel(GameController c, int pos) {
@@ -37,11 +41,23 @@ public class PlayerPanel extends GamePanel{
 		this.setPreferredSize(new Dimension(MainWindow.PLAYER_WIDTH, MainWindow.HEIGHT-MainWindow.TOP_HEIGHT));
 		this.setBorder(new LineBorder(Color.GRAY,1,true));
 		this.setAlignmentX(CENTER_ALIGNMENT);
+		
+		
+		
 		selectPlayerBtn = new JButton("Choose Player");
-		selectPlayerBtn.setPreferredSize(new Dimension(150,40));
+		selectPlayerBtn.setPreferredSize(new Dimension(40,20));
 		selectPlayerBtn.setAlignmentX(CENTER_ALIGNMENT);
 		selectPlayerBtn.addActionListener((e)->{changePlayer();});
-		this.add(selectPlayerBtn);
+		
+		
+		startGameBtn = new JButton("Start Game");
+		startGameBtn.setPreferredSize(new Dimension(40, 20));
+		startGameBtn.setAlignmentX(CENTER_ALIGNMENT);
+		startGameBtn.setEnabled(false);
+		startGameBtn.addActionListener((e)->{this.gc.startGame(pos); });
+		startGameBtn.addActionListener((e)->{System.out.println("Position:"+pos);});  
+		
+	
 		
 		plName = new JTextField();
 		plName.setPreferredSize(new Dimension(MainWindow.PLAYER_WIDTH,40));
@@ -67,11 +83,24 @@ public class PlayerPanel extends GamePanel{
 		plStats.setFont(statsf);
 		plStats.setEnabled(false);		
 		plStats.setMargin(new Insets(10, 10, 10, 10));
+		
+		this.setBackground(Color.GRAY);
+		//plName.setBackground(Color.GRAY);
+		
+		this.add(selectPlayerBtn);
+		this.add(startGameBtn);  
+		
 		this.add(plMark);
 		this.add(plName);		
 		this.add(plStats);
+		
+		
+		
+		
+		
 	}
 
+	
 	public void changePlayer() {
 		//Get the list of all players
 		String[] allPlayers = gc.getModel().getPlayerCatalogue().getPlayers();
@@ -126,6 +155,14 @@ public class PlayerPanel extends GamePanel{
 
 	public JButton getSelectPlayerBtn() {
 		return selectPlayerBtn;
+	}
+
+	public JButton getStartGameBtn() {
+		return startGameBtn;
+	}
+
+	public void setStartGameBtn(JButton startGameBtn) {
+		this.startGameBtn = startGameBtn;
 	}
 
 	

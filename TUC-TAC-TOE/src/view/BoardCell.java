@@ -2,10 +2,17 @@ package view;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -89,18 +96,26 @@ public class BoardCell extends GamePanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
 		System.out.println("Mouse clicked on cell " + this);
-		if (getModel().inPlay()) {
-			getModel().makeMove(row, col);
-			if(getModel().checkWin()!=null) {
-				System.out.println(getModel().checkWin() + " wins!");
-				this.gc.getView().getTopPanel().getStartBtn().setEnabled(true);
-				this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
-				this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
-			}
+		if (getModel().inPlay() && gc.getPos() == 0) {
+			getModel().makeMoveX(row, col);
+			repaint();
+			
+		}
+		else if( getModel().inPlay() && gc.getPos() == 1 ) {
+			getModel().makeMoveO(row, col);
 			repaint();
 		}
+		
+		if(getModel().checkWin()!=null) {
+			System.out.println(getModel().checkWin() + " wins!");
+			this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
+			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
+			this.gc.getView().getMainPanel().showCard("PLAYER_WON");
+			this.gc.getView().getMainPanel().getLabelWon().setText(getModel().checkWin() + " wins!");
+			this.gc.getView().getTopPanel().getDoneBtn().setEnabled(true);
+		}
+		
 	}
 
 	@Override

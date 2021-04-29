@@ -5,15 +5,17 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
-import javax.swing.JPanel;
+
 import javax.swing.border.LineBorder;
 
 import control.GameController;
 
 public class TopPanel extends GamePanel{	
 	JButton quitBtn;
-	JButton startGameBtn;
 	JButton doneBtn;
+	JButton addPlayer;
+	
+	AddPlayer addPlr;
 	
 	public TopPanel(GameController gc) {
 		super(gc);
@@ -26,29 +28,36 @@ public class TopPanel extends GamePanel{
 		quitBtn.setPreferredSize(new Dimension(100, 40));
 		quitBtn.addActionListener((e)->{this.gc.quit();});		
 		
-		startGameBtn = new JButton("Start Game");
-		startGameBtn.setPreferredSize(new Dimension(100, 40));
-		startGameBtn.setEnabled(false);
-		startGameBtn.addActionListener((e)->{this.gc.startGame();});
-		
+	
 		doneBtn = new JButton("Done");		
 		doneBtn.setPreferredSize(new Dimension(100, 40));		
 		doneBtn.setEnabled(false);
-		doneBtn.addActionListener((e)->{System.out.println("done pressed");});
+		doneBtn.addActionListener((e)->{System.out.println("done pressed");
+		gc.getView().getMainPanel().showCard(MainAreaPanel.HOF);
+		doneBtn.setEnabled(false);
+		this.gc.getView().getLeftPanel().startGameBtn.setEnabled(true);
+		this.gc.getView().getRightPanel().startGameBtn.setEnabled(true);
+		});
 		
-		add(startGameBtn);
+
+		addPlayer = new JButton("Add Player");	
+		addPlayer.setPreferredSize(new Dimension(100, 40));
+		addPlayer.addActionListener((e)->{ addPlr = new AddPlayer(gc); });	
+		
+		String addPlayerText = addPlayer.getText();
+		
+		add(quitBtn);
 		add(doneBtn);
-		add(quitBtn);			
+		add(quitBtn);		
+		add(addPlayer);					
+
 	}
 
 	public JButton getQuitBtn() {
 		return quitBtn;
 	}
 
-	public JButton getStartBtn() {
-		return startGameBtn;
-	}
-	
+
 
 	public JButton getDoneBtn() {
 		return doneBtn;

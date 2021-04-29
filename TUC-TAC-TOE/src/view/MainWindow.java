@@ -48,7 +48,13 @@ public class MainWindow extends JFrame{
 		mainPanel = new MainAreaPanel(this.gc);
 		this.add(mainPanel,BorderLayout.CENTER);
 		this.setLocationRelativeTo(null);
+
 		this.pack();
+
+		this.pack();	
+		
+		this.setLocationRelativeTo(null);   //This center the window on the screen
+
 	}
 
 	public PlayerPanel getLeftPanel() {
