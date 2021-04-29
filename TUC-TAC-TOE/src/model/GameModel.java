@@ -117,7 +117,7 @@ public class GameModel {
 	/* Changes for Lab 08 */
 	public void makeMoveX(int row, int col) {
 		checkMoveValidity(row, col);
-		gameBoard[row][col]=getMoverMarkO();
+		gameBoard[row][col]=getMoverMark();
 		mover=!mover;
 		moves++;
 	}
@@ -156,6 +156,8 @@ public class GameModel {
 	public String getMoverMarkO() {
 		return mover? "O": "X";
 	}
+	
+
 	/* Changes for Lab 08 */
 	public void makeMoveO(int row, int col) {
 		checkMoveValidity(row, col);

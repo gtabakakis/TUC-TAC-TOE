@@ -53,8 +53,8 @@ public class PlayerPanel extends GamePanel{
 		startGameBtn.setPreferredSize(new Dimension(40, 20));
 		startGameBtn.setAlignmentX(CENTER_ALIGNMENT);
 		startGameBtn.setEnabled(false);
-		startGameBtn.addActionListener((e)->{this.gc.startGame(pos);});
-		startGameBtn.addActionListener((e)->{System.out.println("Position:"+pos);});       //
+		startGameBtn.addActionListener((e)->{this.gc.startGame(pos); });
+		startGameBtn.addActionListener((e)->{System.out.println("Position:"+pos);});  
 		
 	
 		

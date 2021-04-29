@@ -54,8 +54,10 @@ public class GameController extends WindowAdapter {
 		this.view.getTopPanel().getAddPlayer().setEnabled(false);           //
 		
 		this.view.getMainPanel().showCard(MainAreaPanel.BOARD);
+		this.view.getMainPanel().showCard("PLAYER_MOVE");
 		this.view.getLeftPanel().getSelectPlayerBtn().setEnabled(model.NoPlay());
 		this.view.getRightPanel().getSelectPlayerBtn().setEnabled(model.NoPlay());
+
 		this.model.setMoves(0);
 	}
 	

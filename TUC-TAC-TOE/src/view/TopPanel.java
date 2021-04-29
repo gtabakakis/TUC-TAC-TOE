@@ -36,7 +36,12 @@ public class TopPanel extends GamePanel{
 		doneBtn = new JButton("Done");		
 		doneBtn.setPreferredSize(new Dimension(100, 40));		
 		doneBtn.setEnabled(false);
-		doneBtn.addActionListener((e)->{System.out.println("done pressed");});
+		doneBtn.addActionListener((e)->{System.out.println("done pressed");
+		gc.getView().getMainPanel().showCard(MainAreaPanel.HOF);
+		doneBtn.setEnabled(false);
+		this.gc.getView().getLeftPanel().startGameBtn.setEnabled(true);
+		this.gc.getView().getRightPanel().startGameBtn.setEnabled(true);
+		});
 		
 
 		addPlayer = new JButton("Add Player");	

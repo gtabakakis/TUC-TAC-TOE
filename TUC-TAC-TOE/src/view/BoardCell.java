@@ -2,8 +2,10 @@ package view;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -92,7 +94,9 @@ public class BoardCell extends GamePanel implements MouseListener {
 		if (getModel().inPlay() && gc.getPos() == 0) {
 			getModel().makeMoveX(row, col);
 			repaint();
-		}else if( getModel().inPlay() && gc.getPos() == 1 ) {
+			
+		}
+		else if( getModel().inPlay() && gc.getPos() == 1 ) {
 			getModel().makeMoveO(row, col);
 
 			repaint();
@@ -100,14 +104,22 @@ public class BoardCell extends GamePanel implements MouseListener {
 		
 		if(getModel().checkWin()!=null) {
 			System.out.println(getModel().checkWin() + " wins!");
+			this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
+			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
+			this.gc.getView().getMainPanel().showCard("PLAYER_WON");
+			this.gc.getView().getMainPanel().getLabelWon().setText(getModel().checkWin() + " wins!");
+			this.gc.getView().getTopPanel().getDoneBtn().setEnabled(true);
 			this.gc.getView().getLeftPanel().startGameBtn.setEnabled(true);
 			this.gc.getView().getRightPanel().startGameBtn.setEnabled(true);
 			this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
 			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
+
 			
 			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);     ///\
 			
 			
+			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);
+
 		}
 		
 	}
