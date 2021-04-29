@@ -3,23 +3,22 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 import java.awt.Insets;
 import java.util.Arrays;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import control.GameController;
+
+
+@SuppressWarnings("serial")
 
 public class PlayerPanel extends GamePanel{
 	
@@ -165,5 +164,6 @@ public class PlayerPanel extends GamePanel{
 		this.startGameBtn = startGameBtn;
 	}
 
+	
 	
 }

@@ -7,11 +7,9 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import control.GameController;
-import model.GameModel;
 
 @SuppressWarnings("serial")
 public class BoardCell extends GamePanel implements MouseListener {
@@ -90,13 +88,26 @@ public class BoardCell extends GamePanel implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("Mouse clicked on cell " + this);
+		
 		if (getModel().inPlay() && gc.getPos() == 0) {
 			getModel().makeMoveX(row, col);
 			repaint();
 		}else if( getModel().inPlay() && gc.getPos() == 1 ) {
 			getModel().makeMoveO(row, col);
+
 			repaint();
 		}
+		
+		if(getModel().checkWin()!=null) {
+			System.out.println(getModel().checkWin() + " wins!");
+			this.gc.getView().getLeftPanel().startGameBtn.setEnabled(true);
+			this.gc.getView().getRightPanel().startGameBtn.setEnabled(true);
+			this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
+			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
+			
+			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);     ///
+		}
+		
 	}
 
 	@Override

@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import control.GameController;
 import model.GameModel;
 
+
+@SuppressWarnings("serial")
+
 public abstract class GamePanel extends JPanel{
 	protected GameController gc;
 	

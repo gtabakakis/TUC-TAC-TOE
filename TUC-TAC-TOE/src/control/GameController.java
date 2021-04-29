@@ -4,7 +4,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import model.GameModel;
-import model.PlayersCatalogue;
 import view.MainAreaPanel;
 import view.MainWindow;
 
@@ -37,6 +36,7 @@ public class GameController extends WindowAdapter {
 	}
 	
 	
+	
 	public void selectPlayer(String p, int pos) {
 		this.model.selectPlayer(p, pos);	
 		System.out.println("Player " + pos + " set to " + p);
@@ -51,10 +51,15 @@ public class GameController extends WindowAdapter {
 		this.view.getLeftPanel().getStartGameBtn().setEnabled(false);
 		this.view.getRightPanel().getStartGameBtn().setEnabled(false);
 		
+		this.view.getTopPanel().getAddPlayer().setEnabled(false);           //
+		
 		this.view.getMainPanel().showCard(MainAreaPanel.BOARD);
 		this.view.getLeftPanel().getSelectPlayerBtn().setEnabled(model.NoPlay());
 		this.view.getRightPanel().getSelectPlayerBtn().setEnabled(model.NoPlay());
+		this.model.setMoves(0);
 	}
+	
+	
 	
 	public GameModel getModel() {
 		return model;

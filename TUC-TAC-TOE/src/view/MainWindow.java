@@ -1,16 +1,12 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
+
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 
 import javax.swing.JFrame;
-import javax.swing.border.LineBorder;
 
 import control.GameController;
 
@@ -48,9 +44,13 @@ public class MainWindow extends JFrame{
 		mainPanel = new MainAreaPanel(this.gc);
 		this.add(mainPanel,BorderLayout.CENTER);
 		this.setLocationRelativeTo(null);
+
+		this.pack();
+
 		this.pack();	
 		
 		this.setLocationRelativeTo(null);   //This center the window on the screen
+
 	}
 
 	public PlayerPanel getLeftPanel() {
