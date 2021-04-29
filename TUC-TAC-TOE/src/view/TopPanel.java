@@ -20,6 +20,8 @@ public class TopPanel extends GamePanel{
 		this.setLayout(new FlowLayout(FlowLayout.CENTER));
 		this.setPreferredSize(new Dimension(MainWindow.WIDTH,MainWindow.TOP_HEIGHT));
 		this.setBorder(new LineBorder(Color.GRAY,1,true));
+		
+		
 		quitBtn = new JButton("Quit App");	
 		quitBtn.setPreferredSize(new Dimension(100, 40));
 		quitBtn.addActionListener((e)->{this.gc.quit();});		
@@ -36,7 +38,7 @@ public class TopPanel extends GamePanel{
 		
 		add(startGameBtn);
 		add(doneBtn);
-		add(quitBtn);					
+		add(quitBtn);			
 	}
 
 	public JButton getQuitBtn() {

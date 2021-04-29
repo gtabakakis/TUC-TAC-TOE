@@ -2,6 +2,9 @@ package model;
 
 import control.GameController;
 
+import java.awt.Dimension;
+
+
 public class GameModel {
 	PlayersCatalogue  playerCatalogue;
 	String [] gamePlayers;		
@@ -20,6 +23,8 @@ public class GameModel {
 		/* Changes for Lab 08 */
 		mover=false;
 		moves=0;
+		
+		
 	}
 	
 	public void selectPlayer(String player, int pos) {
@@ -35,6 +40,8 @@ public class GameModel {
 	
 	public void startGame() {
 		gameBoard= new String[3][3];
+		
+
 	}
 	
 	
@@ -52,6 +59,20 @@ public class GameModel {
 	}
 	
 	
+	
+	
+	public int getMoves() {
+		return moves;
+	}
+
+	public void setMoves(int moves) {
+		this.moves = moves;
+	}
+
+	public void setMover(Boolean mover) {
+		this.mover = mover;
+	}
+
 	public String[] getGamePlayers() {
 		return gamePlayers;
 	}
@@ -102,9 +123,35 @@ public class GameModel {
 		moves++;
 	}
 	
+	
+	public String checkWin() {
+		
+		if(gameBoard[0][0]!=null && gameBoard[0][1]!=null && gameBoard[0][2]!=null && gameBoard[0][0].equals(gameBoard[0][1]) && gameBoard[0][1].equals(gameBoard[0][2]))
+			return gameBoard[0][0];
+		if(gameBoard[1][0]!=null && gameBoard[1][1]!=null && gameBoard[1][2]!=null && gameBoard[1][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[1][2]))
+			return gameBoard[1][0];
+		if(gameBoard[2][0]!=null && gameBoard[2][1]!=null && gameBoard[2][2]!=null && gameBoard[2][0].equals(gameBoard[2][1]) && gameBoard[2][1].equals(gameBoard[2][2]))
+			return gameBoard[2][0];
+		
+		
+		if(gameBoard[0][0]!=null && gameBoard[1][0]!=null && gameBoard[2][0]!=null && gameBoard[0][0].equals(gameBoard[1][0]) && gameBoard[1][0].equals(gameBoard[2][0]))
+			return gameBoard[0][0];
+		if(gameBoard[0][1]!=null && gameBoard[1][1]!=null && gameBoard[2][1]!=null && gameBoard[0][1].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][1]))
+			return gameBoard[0][1];
+		if(gameBoard[0][2]!=null && gameBoard[1][2]!=null && gameBoard[2][2]!=null && gameBoard[0][2].equals(gameBoard[1][2]) && gameBoard[1][2].equals(gameBoard[3][2]))
+			return gameBoard[1][1];
+		
+		if(gameBoard[0][0]!=null && gameBoard[1][1]!=null && gameBoard[2][2]!=null && gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][2]))
+			return gameBoard[0][0];
+		if(gameBoard[0][2]!=null && gameBoard[1][1]!=null && gameBoard[2][0]!=null && gameBoard[0][2].equals(gameBoard[1][1]) && gameBoard[1][1].equals(gameBoard[2][0]))
+			return gameBoard[1][1];
+		
+		return null;
+	}
+	
 	/* Changes for Lab 08 */
 	public String getMoverMark() {
-		return mover? "X": "O";
+		return mover? "O": "X";
 	}
 	
 	/* Changes for Lab 08 */
