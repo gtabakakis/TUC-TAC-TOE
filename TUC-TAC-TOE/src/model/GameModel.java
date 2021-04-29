@@ -95,15 +95,27 @@ public class GameModel {
 	}
 	
 	/* Changes for Lab 08 */
-	public void makeMove(int row, int col) {
+	public void makeMoveX(int row, int col) {
 		checkMoveValidity(row, col);
-		gameBoard[row][col]=getMoverMark();
+		gameBoard[row][col]=getMoverMarkO();
 		mover=!mover;
 		moves++;
 	}
 	
 	/* Changes for Lab 08 */
-	public String getMoverMark() {
+	public String getMoverMarkO() {
+		return mover? "O": "X";
+	}
+	/* Changes for Lab 08 */
+	public void makeMoveO(int row, int col) {
+		checkMoveValidity(row, col);
+		gameBoard[row][col]=getMoverMarkX();
+		mover=!mover;
+		moves++;
+	}
+	
+	/* Changes for Lab 08 */
+	public String getMoverMarkX() {
 		return mover? "X": "O";
 	}
 	
