@@ -105,7 +105,9 @@ public class BoardCell extends GamePanel implements MouseListener {
 			this.gc.getView().getLeftPanel().getSelectPlayerBtn().setEnabled(true);
 			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
 			
-			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);     ///
+			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);     ///\
+			
+			
 		}
 		
 	}
