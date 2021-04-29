@@ -1,18 +1,14 @@
 package view;
 
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
 
-import javax.swing.JPanel;
+import java.awt.Graphics;
+
+
 
 import control.GameController;
+
+@SuppressWarnings({"serial", "unused"})
+
 
 public class HallOfFame extends GamePanel{
 private GameController gc;

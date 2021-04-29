@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import control.GameController;
 
+@SuppressWarnings("serial")
+
 
 public class MainAreaPanel extends GamePanel{
 	public static final String HOF = "HALL_OF_FAME";
@@ -41,6 +43,7 @@ public class MainAreaPanel extends GamePanel{
 		
 		this.add("PLAYER_WON", playerWon);
 		playerWon.add(labelWon);
+
 		this.add(HOF,hallOfFame);
 		this.add(BOARD,gameBoard);
 	}
@@ -49,6 +52,7 @@ public class MainAreaPanel extends GamePanel{
 	public void showCard(String s) {		
 		cards.show(this, s);		
 	}
+
 
 
 

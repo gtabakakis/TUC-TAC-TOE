@@ -153,6 +153,10 @@ public class GameModel {
 		return mover? "O": "X";
 	}
 	
+	public String getMoverMarkO() {
+		return mover? "O": "X";
+	}
+	
 
 	/* Changes for Lab 08 */
 	public void makeMoveO(int row, int col) {

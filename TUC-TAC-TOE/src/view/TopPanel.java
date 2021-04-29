@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -9,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 import control.GameController;
+
+
+@SuppressWarnings("serial")
 
 public class TopPanel extends GamePanel{	
 	JButton quitBtn;
@@ -44,7 +48,7 @@ public class TopPanel extends GamePanel{
 		addPlayer.setPreferredSize(new Dimension(100, 40));
 		addPlayer.addActionListener((e)->{ addPlr = new AddPlayer(gc); });	
 		
-		String addPlayerText = addPlayer.getText();
+	
 		
 		add(quitBtn);
 		add(doneBtn);
@@ -52,6 +56,14 @@ public class TopPanel extends GamePanel{
 		add(addPlayer);					
 
 	}
+	
+	
+
+	public JButton getAddPlayer() {
+		return addPlayer;
+	}
+
+
 
 	public JButton getQuitBtn() {
 		return quitBtn;

@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 
 import control.GameController;
 
+@SuppressWarnings("serial")
+
 public class AddPlayer extends JFrame {
 	
 	private JButton enterBtn;
