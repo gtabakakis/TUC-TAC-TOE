@@ -7,6 +7,8 @@ public class TicTacToe {
 	
 	public static void main(String[] args) {		
 		GameController gc = new GameController();
+		
 		gc.start();
+		gc.getModel().getPlayerCatalogue().loadPlayers();  //Load Players
 	}
 }

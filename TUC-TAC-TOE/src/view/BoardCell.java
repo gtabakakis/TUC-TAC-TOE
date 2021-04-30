@@ -91,14 +91,13 @@ public class BoardCell extends GamePanel implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		System.out.println("Mouse clicked on cell " + this);
 		
-		if (getModel().inPlay() && gc.getPos() == 0) {
+		if (getModel().inPlay() && (gc.getPos() == 0) ) {
 			getModel().makeMoveX(row, col);
 			repaint();
 			
 		}
-		else if( getModel().inPlay() && gc.getPos() == 1 ) {
+		else if( getModel().inPlay() && (gc.getPos() == 1) ) {
 			getModel().makeMoveO(row, col);
-
 			repaint();
 		}
 		
@@ -115,10 +114,7 @@ public class BoardCell extends GamePanel implements MouseListener {
 			this.gc.getView().getRightPanel().getSelectPlayerBtn().setEnabled(true);
 
 			
-			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);     ///\
 			
-			
-			this.gc.getView().getTopPanel().getAddPlayer().setEnabled(true);
 
 		}
 		

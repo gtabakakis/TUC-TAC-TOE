@@ -23,6 +23,7 @@ public class MainAreaPanel extends GamePanel{
 	JPanel playerWon;
 	JLabel labelWon;
 	
+	
 	public MainAreaPanel(GameController gc) {
 		super(gc);
 		

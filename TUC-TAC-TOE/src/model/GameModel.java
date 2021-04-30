@@ -18,7 +18,7 @@ public class GameModel {
 		this.gc=gc;
 		gamePlayers = new String[2];
 		gameBoard= null;
-		playerCatalogue= new PlayersCatalogue();
+		playerCatalogue= new PlayersCatalogue(gc);
 		/* Changes for Lab 08 */
 		mover=false;
 		moves=0;
@@ -114,13 +114,7 @@ public class GameModel {
 		this.playerCatalogue = playerCatalogue;
 	}
 	
-	/* Changes for Lab 08 */
-	public void makeMoveX(int row, int col) {
-		checkMoveValidity(row, col);
-		gameBoard[row][col]=getMoverMark();
-		mover=!mover;
-		moves++;
-	}
+	
 	
 	
 	public String checkWin() {
@@ -148,30 +142,38 @@ public class GameModel {
 		return null;
 	}
 	
-	/* Changes for Lab 08 */
-	public String getMoverMark() {
-		return mover? "O": "X";
-	}
 	
-	public String getMoverMarkO() {
-		return mover? "O": "X";
-	}
 	
 
-	/* Changes for Lab 08 */
-	public void makeMoveO(int row, int col) {
+	public String getMoverMarkO() {
+		System.out.println("Mover:"+ mover );
+		return mover? "X": "O";
+	}
+	
+	
+	
+	public String getMoverMarkX() {
+		System.out.println("Mover:"+ mover );
+		return mover? "O": "X";
+	}
+
+	
+	public void makeMoveX(int row, int col) {
 		checkMoveValidity(row, col);
 		gameBoard[row][col]=getMoverMarkX();
 		mover=!mover;
 		moves++;
 	}
 	
-	/* Changes for Lab 08 */
-	public String getMoverMarkX() {
-		return mover? "X": "O";
 
+	public void makeMoveO(int row, int col) {
+		checkMoveValidity(row, col);
+		gameBoard[row][col]=getMoverMarkO();
+		mover=!mover;
+		moves++;
 	}
 	
+
 	/* Changes for Lab 08 */
 	public String getPlayerStats(String player) {
 		StringBuilder sb = new StringBuilder("");

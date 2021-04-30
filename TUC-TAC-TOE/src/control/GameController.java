@@ -30,7 +30,10 @@ public class GameController extends WindowAdapter {
 		this.view.setVisible(true);
 	}
 	
-	public void quit() {		
+	public void quit() {	
+		
+		this.model.getPlayerCatalogue().storePlayers();   //Store Players
+		
 		System.out.println("bye bye...");		
 		System.exit(0);
 	}
@@ -51,7 +54,8 @@ public class GameController extends WindowAdapter {
 		this.view.getLeftPanel().getStartGameBtn().setEnabled(false);
 		this.view.getRightPanel().getStartGameBtn().setEnabled(false);
 		
-		this.view.getTopPanel().getAddPlayer().setEnabled(false);           //
+		this.view.getTopPanel().getAddPlayer().setEnabled(false);   //
+		this.view.getTopPanel().getDelPlayer().setEnabled(false);   //
 		
 		this.view.getMainPanel().showCard(MainAreaPanel.BOARD);
 		this.view.getMainPanel().showCard("PLAYER_MOVE");
@@ -59,6 +63,11 @@ public class GameController extends WindowAdapter {
 		this.view.getRightPanel().getSelectPlayerBtn().setEnabled(model.NoPlay());
 
 		this.model.setMoves(0);
+		this.model.setMover(false);
+		
+
+		
+		
 	}
 	
 	
